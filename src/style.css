@@ -5,6 +5,8 @@
 
 body {
     margin: 0;
+    background-color: #FFFFF9;
+    
 }
 
 header {
@@ -13,6 +15,9 @@ header {
     height: 10%;
     padding: 3% 33% 3% 33%;
     margin-top: 0;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
 
 }
 
@@ -25,3 +30,42 @@ h1 {
     color: #F1DCB9;
 
 }
+
+.grid-container {
+    grid-template-columns: auto auto auto auto auto;
+    display: grid;
+    margin: auto;
+    padding: 20px;
+    
+    
+}
+
+.box {
+    border: 3px solid #575344;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: #FFFFF9;
+    width: 260px;
+    height: 170px;
+    padding: 20px 20px 15px 20px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11px;
+    color: #575344;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    margin-bottom: 30px;
+    
+ }
+
+ img {
+    width: 220px;
+    height: 120px;
+    
+ }
+
+
+
+
