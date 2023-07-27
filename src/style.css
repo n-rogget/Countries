@@ -2,7 +2,7 @@
 
 body {
     margin: 0;
-    background-color: #FFFFF9;
+    background-color: #F8E9CA;
     
 }
 
@@ -14,7 +14,10 @@ header {
     margin-top: 0;
     border: 1px solid #ccc;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0px;
+    z-index: 10
     
 
 }
@@ -56,7 +59,17 @@ h1 {
     justify-content: center;
     display: grid;
     margin-bottom: 30px;
+    cursor: pointer;
+    transition: box-shadow 500ms;
+    transition: opacity 500ms;
     
+ }
+
+ .box:hover {
+    box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+    background-color: #fccd6eb0;
+
  }
 
  img {
@@ -92,31 +105,35 @@ h1 {
         box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
         border-radius: 15px;
         background-color: #FFFFF9;
-        width: 300px;
-        height: 500px;
+        width: 400px;
+        height: 800px;
         text-align: center;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        font-size: 12px;
+        font-size: 18px;
         color: #575344;
         align-items: center;
         justify-content: center;
-       
-        
-        
+        padding: 20px;
+              
        
 }
 
-/* #popupContainer {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width:100vw;
-} */
+ .closeButton {
+    border: 2px solid #575344;
+    margin-top: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #575344;
+    font-size: 15px;
+    text-align: center;
+    background-color:#f2b132;
+    border-radius: 2px;
+    padding: 5px 5px;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+
+} 
+
 
 
 
