@@ -1,23 +1,23 @@
-import { example, anotherExample } from '../src/data.js';
+import { createCards, showCards } from '../src/main.js';
 
 
-describe('example', () => {
+describe('createCards', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof createCards).toBe('function');
   });
 
-  it('returns `example`', () => {
+  /*it('returns `creates cards with its content`', () => {
     expect(example()).toBe('example');
-  });
+  });*/
 });
 
 
-describe('anotherExample', () => {
+describe('showCards', () => {
   it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+    expect(typeof showCards).toBe('function');
   });
 
-  it('returns `anotherExample`', () => {
+  /*it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
-  });
+  });*/
 });

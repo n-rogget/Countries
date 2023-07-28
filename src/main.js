@@ -7,7 +7,7 @@ import data from './data/countries/countries.js';
 //Seleccionamos el elemento section que tiene la clase "grid-container" y lo guardamos en la constante containerCard
 const containerCard = document.querySelector(".grid-container") //Para que aparezca en la sección
 // Creamos la función createCards para crear las tarjetas y recibe el parámetro countries 
-const createCards = (paises) => {
+export const createCards = (paises) => {
   //Recorremos los countries           
   for (let i = 0; i < paises.length; i++) {
     //creamos una sección    /*  */
@@ -78,7 +78,7 @@ const ValidatorString = (countries) => {
   return countries;
 }
 
-const showCards = (paises) => {
+export const showCards = (paises) => {
   // Seleccionamos los elementos de la clase .box
   const boxCountries = document.querySelectorAll('.box');
   //Seleccionamos el elemento section con su ID        
@@ -108,31 +108,27 @@ const showCards = (paises) => {
             <p>Fifa: ${ValidatorString(paises[i].fifa)}</p>
             <p>Timezones: ${validatorMoreArray(paises[i].timezones)}</p>
             <p>Continents: ${validatorArraySimple(paises[i].continents)}</p>`;
-    
-    //Agregamos una clase al body para darle estilo de opacidad
-            document.body.classList.add('modal-open');    
-    // La vamos a mostrar con innerHTML        
-            popUp.innerHTML = popContent;
-    //Creamos un botón
-            const button = document.createElement("button");
-    //Le agregamos una clase al buttton
-            button.classList.add("closeButton");
-    
-            button.innerHTML = "Cerrar";
-    //Del dialog sale un hijo button
-            popUp.appendChild(button);
-    //Le escuchamos el click al button y cerramos
-            button.addEventListener('click', () => {
-    //Le quitamos el estilo al body
-                document.body.classList.remove('modal-open');
-                popUp.close();
-            });
-    //Usamos el método showModal() para mostrar el elemento dialog       
-            popUp.showModal();
-        });   
-    }
 
- 
+      // La vamos a mostrar con innerHTML        
+      popUp.innerHTML = popContent;
+      //Creamos un botón
+      const button = document.createElement("button");
+      //Le agregamos una clase al buttton
+      button.classList.add("closeButton");
+
+      button.innerHTML = "Cerrar";
+      //Del dialog sale un hijo button
+      popUp.appendChild(button);
+      //Le escuchamos el click al button y cerramos
+      button.addEventListener('click', () => {
+        popUp.close();
+      });
+      //Usamos el método showModal() para mostrar el elemento dialog       
+      popUp.showModal();
+    });
+  }
+
+
 
 };
 
@@ -150,4 +146,12 @@ showCards(data.countries);
     for (let i = 0; i < paises.length; i++) {     
         if (paises[i].name.common[0] === letra.toLowerCase() || paises[i].name.common[0] === letra.toUpperCase()) {       
             paisesPorLetra.push(paises[i])//     }//   } // }// filterByInitialCharacter(data.countries,"C")      // TODO ESTO NOS SIRVE PARA FILTRAR*/
+
+
+
+
+
+
+
+
 
