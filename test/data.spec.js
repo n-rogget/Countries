@@ -1,23 +1,29 @@
-import { createCards, showCards } from '../src/main.js';
+import { example, anotherExample } from '../src/data.js';
 
 
-describe('createCards', () => {
+describe(' testeando funcion createCards', () => {
+//it , podemos plantear cada test
+//descripcion del test
+
   it('is a function', () => {
-    expect(typeof createCards).toBe('function');
+    //expect - la prueba
+    //matcher - toBe, toEqual
+    expect(typeof example).toBe('function');
   });
 
-  /*it('returns `creates cards with its content`', () => {
+  it('returns `creates cards with its content`', () => {
     expect(example()).toBe('example');
-  });*/
+  });
 });
 
+//COMO DEFINIR O TRAERNOS paises
 
 describe('showCards', () => {
   it('is a function', () => {
-    expect(typeof showCards).toBe('function');
+    expect(typeof anotherExample).toBe('function');
   });
 
-  /*it('returns `anotherExample`', () => {
+  it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
-  });*/
+  });
 });

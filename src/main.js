@@ -3,12 +3,13 @@ import data from './data/countries/countries.js';
 
 
 //VISUALIZAR LOS PAISES EN LA PANTALLA
-
 //Seleccionamos el elemento section que tiene la clase "grid-container" y lo guardamos en la constante containerCard
 const containerCard = document.querySelector(".grid-container") //Para que aparezca en la sección
 // Creamos la función createCards para crear las tarjetas y recibe el parámetro countries 
-export const createCards = (paises) => {
-  //Recorremos los countries           
+ 
+const createCards = (paises) => {
+  //Recorremos los countries  
+        
   for (let i = 0; i < paises.length; i++) {
     //creamos una sección    /*  */
     const card = document.createElement('section')
@@ -19,6 +20,7 @@ export const createCards = (paises) => {
       `<img src="${paises[i].flags.png}"/>    
         <h2>${paises[i].name.common}</h2>`
 
+    
     //FALTA AGREGAR EL SVG Y ALT DE LA IMAGEN
     // luego appendchile nos trae un "hijo" (tarjeta), sacado de un padre (section que contiene las tarjetas) 
     containerCard.appendChild(card)
@@ -78,7 +80,7 @@ const ValidatorString = (countries) => {
   return countries;
 }
 
-export const showCards = (paises) => {
+const showCards = (paises) => {
   // Seleccionamos los elementos de la clase .box
   const boxCountries = document.querySelectorAll('.box');
   //Seleccionamos el elemento section con su ID        

@@ -10,7 +10,7 @@ header {
     background-image: url("data-images/header-countries.png");
     text-align: center;
     height: 10%;
-    padding: 3% 18% 3% 18%;
+    padding: 3% 5% 3% 5%;
     margin-top: 0;
     border: 1px solid #ccc;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
@@ -181,3 +181,32 @@ h3 {
     /* Puedes ajustar el último valor (0.5) para cambiar la opacidad */
     /* 0 es completamente transparente, 1 es completamente opaco */
 }
+
+.search-container {
+    position: relative;
+    float: right;
+}
+
+.input-style {
+    width: 300px;
+    height: 30px; 
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    background-color: #FFFFF9;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border: none;
+  }
