@@ -6,10 +6,10 @@ import data from './data/countries/countries.js';
 //Seleccionamos el elemento section que tiene la clase "grid-container" y lo guardamos en la constante containerCard
 const containerCard = document.querySelector(".grid-container") //Para que aparezca en la sección
 // Creamos la función createCards para crear las tarjetas y recibe el parámetro countries 
- 
+
 const createCards = (paises) => {
   //Recorremos los countries  
-        
+
   for (let i = 0; i < paises.length; i++) {
     //creamos una sección    /*  */
     const card = document.createElement('section')
@@ -20,12 +20,13 @@ const createCards = (paises) => {
       `<img src="${paises[i].flags.png}"/>    
         <h2>${paises[i].name.common}</h2>`
 
-    
+
     //FALTA AGREGAR EL SVG Y ALT DE LA IMAGEN
     // luego appendchile nos trae un "hijo" (tarjeta), sacado de un padre (section que contiene las tarjetas) 
     containerCard.appendChild(card)
 
   }
+  
 }
 
 //Llamamos a la función y le pasamos el argumento data.countries
@@ -80,12 +81,14 @@ const ValidatorString = (countries) => {
   return countries;
 }
 
+
+//Seleccionamos el elemento section con su ID        
+const popUp = document.querySelector('#popupDialog');
+
+//Hacemos nuestra función para mostrar la tarjeta con info completa de un país al hacerle click
 const showCards = (paises) => {
   // Seleccionamos los elementos de la clase .box
   const boxCountries = document.querySelectorAll('.box');
-  //Seleccionamos el elemento section con su ID        
-  const popUp = document.querySelector('#popupDialog');
-
 
   //Recorrremos los elementos de las tarjetas
   for (let i = 0; i < boxCountries.length; i++) {
@@ -130,14 +133,33 @@ const showCards = (paises) => {
     });
   }
 
-
-
 };
-
 showCards(data.countries);
 
+//Nos preparamos para recibir la información del input text para buscar el nombre del país. Obtenemos su valor.
+const inputSearch = document.getElementById("countrySearch");
 
+//Función para comparar el valor del input con el nombre de un país
+const inputFilter = async () => {
+  // Obtenemos el valor del input
+  const inputValue = inputSearch.value.toLowerCase();
+  containerCard.innerHTML = '';
+  let countryFilter = [];
 
+  for (let country of data.countries) {
+    let countryName = country.name.common.toLowerCase();
+
+    if (countryName.indexOf(inputValue) !== -1) {
+      
+      countryFilter.push(country);
+    }
+  }
+  
+  createCards(countryFilter);
+ 
+}
+
+inputSearch.addEventListener('keyup', inputFilter);
 
 
 
@@ -157,3 +179,30 @@ showCards(data.countries);
 
 
 
+ /*const inputFilter = () => {
+   // Obtenemos el valor del input
+   const inputValue = inputSearch.value.toLowerCase();
+   
+   containerCard.innerHTML = '';
+   
+     for (let country of data.countries) {
+       let countryName = country.name.common.toLowerCase();
+       
+       if(countryName.indexOf(inputValue) !== -1) {
+         const card = document.createElement('section')
+         // añadimos clase a la sección (box porque ya la definimos en css anteriormente)
+         card.classList.add('box')
+         //mandamos a html la imagen y el nombre, con $para que busque lo que le pedimos
+         card.innerHTML =
+           `<img src="${country.flags.png}"/>    
+             <h2>${country.name.common}</h2>`
+       
+         // luego appendchile nos trae un "hijo" (tarjeta), sacado de un padre (section que contiene las tarjetas) 
+         containerCard.appendChild(card)
+       }
+     }
+   
+     
+   }
+   
+   inputSearch.addEventListener('keyup', inputFilter);*/
