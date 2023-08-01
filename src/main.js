@@ -4,10 +4,15 @@ import data from './data/countries/countries.js';
 
 //VISUALIZAR LOS PAISES EN LA PANTALLA
 //Seleccionamos el elemento section que tiene la clase "grid-container" y lo guardamos en la constante containerCard
-const containerCard = document.querySelector(".grid-container") //Para que aparezca en la sección
+//Para que aparezca en la sección
 // Creamos la función createCards para crear las tarjetas y recibe el parámetro countries 
 
 const createCards = (paises) => {
+  const containerCard = document.querySelector(".grid-container")
+  const dialog = document.createElement('dialog')
+  dialog.setAttribute('id', 'popupDialog')
+  containerCard.appendChild(dialog)
+
   //Recorremos los countries  
 
   for (let i = 0; i < paises.length; i++) {
@@ -26,7 +31,7 @@ const createCards = (paises) => {
     containerCard.appendChild(card)
 
   }
-  
+
 }
 
 //Llamamos a la función y le pasamos el argumento data.countries
@@ -58,7 +63,7 @@ const validatorObjectSimple = (countries) => {
 //Creamos una función para obtener el valor de Array con 1 resultado capital y continente
 const validatorArraySimple = (countries) => {
   if (!countries) {
-    return "n/a"
+    return "No data"
   }
   const capitalValue = Object.values(countries)
   return capitalValue;
@@ -82,21 +87,22 @@ const ValidatorString = (countries) => {
 }
 
 
-//Seleccionamos el elemento section con su ID        
-const popUp = document.querySelector('#popupDialog');
+ 
+
 
 //Hacemos nuestra función para mostrar la tarjeta con info completa de un país al hacerle click
 const showCards = (paises) => {
+  //Seleccionamos el elemento section con su ID       
+  const popUp = document.querySelector('#popupDialog');
+
   // Seleccionamos los elementos de la clase .box
   const boxCountries = document.querySelectorAll('.box');
-
   //Recorrremos los elementos de las tarjetas
   for (let i = 0; i < boxCountries.length; i++) {
     //Escuchamos el evento click para cada tarjeta
     boxCountries[i].addEventListener('click', () => {
-
+      
       //Guardamos en una constante la data que vamos a mostrar
-
       const popContent = `<img src="${paises[i].flags.png}"/>    
             <h2>${paises[i].name.common}</h2>
             <p>Official name: ${paises[i].name.official}</p>
@@ -130,6 +136,7 @@ const showCards = (paises) => {
       });
       //Usamos el método showModal() para mostrar el elemento dialog       
       popUp.showModal();
+
     });
   }
 
@@ -141,25 +148,71 @@ const inputSearch = document.getElementById("countrySearch");
 
 //Función para comparar el valor del input con el nombre de un país
 const inputFilter = async () => {
+  const containerCard = document.querySelector(".grid-container")
+  containerCard.innerHTML = ''  
   // Obtenemos el valor del input
   const inputValue = inputSearch.value.toLowerCase();
-  containerCard.innerHTML = '';
-  let countryFilter = [];
+  const countryFilter = [];
 
-  for (let country of data.countries) {
-    let countryName = country.name.common.toLowerCase();
+  for (const country of data.countries) {
+    const countryName = country.name.common.toLowerCase();
 
     if (countryName.indexOf(inputValue) !== -1) {
-      
+
       countryFilter.push(country);
     }
   }
-  
+
   createCards(countryFilter);
- 
+  showCards(countryFilter)
+
 }
 
 inputSearch.addEventListener('keyup', inputFilter);
+
+
+//llamamos a la funcion por el arreglo donde debe buscar// 
+/*const filterByInitialCharacter = (paises, letra) => {  //   
+    const paisesPorLetra = []   
+    for (let i = 0; i < paises.length; i++) {     
+        if (paises[i].name.common[0] === letra.toLowerCase() || paises[i].name.common[0] === letra.toUpperCase()) {       
+            paisesPorLetra.push(paises[i])//     }//   } // }// filterByInitialCharacter(data.countries,"C")      // TODO ESTO NOS SIRVE PARA FILTRAR*/
+
+
+
+
+
+
+
+
+
+/*const inputFilter = () => {
+   // Obtenemos el valor del input
+   const inputValue = inputSearch.value.toLowerCase();
+   
+   containerCard.innerHTML = '';
+   
+     for (let country of data.countries) {
+       let countryName = country.name.common.toLowerCase();
+       
+       if(countryName.indexOf(inputValue) !== -1) {
+         const card = document.createElement('section')
+         // añadimos clase a la sección (box porque ya la definimos en css anteriormente)
+         card.classList.add('box')
+         //mandamos a html la imagen y el nombre, con $para que busque lo que le pedimos
+         card.innerHTML =
+           `<img src="${country.flags.png}"/>    
+             <h2>${country.name.common}</h2>`
+       
+         // luego appendchile nos trae un "hijo" (tarjeta), sacado de un padre (section que contiene las tarjetas) 
+         containerCard.appendChild(card)
+       }
+     }
+   
+     
+   }
+   
+   inputSearch.addEventListener('keyup', inputFilter);*/
 
 
 
