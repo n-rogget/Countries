@@ -7,7 +7,7 @@ body {
 }
 
 
-@media (min-width:1300px) {
+@media (min-width:1600px) {
     header {
       background-image: url("data-images/header-countries.png");
       text-align: center;
@@ -24,7 +24,7 @@ body {
     }
     }
     
-    @media (max-width:1300px) {
+    @media (max-width:1600px) {
       header {
         background-image: url("data-images/header-countries.png");
         text-align: center;
@@ -229,3 +229,56 @@ h3 {
     cursor: pointer;
     border: none;
   }
+
+  .functionButtons {
+    display: inline-flex;
+    position: relative;
+    float: right;
+    margin: 10px 70px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #575344;
+    border: 1px solid #ccc;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+    
+  }
+
+  label {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color:#FFFFF9;
+    margin-right: 10px;
+    background-image: url("data-images/icono-filtro.png");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 102% center;
+    padding-right: 20px; 
+  }
+
+
+  #continentSelect {
+    font-family: Arial, sans-serif;
+    color: #FFFFF9;
+    background-color: #575344;
+    font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+  }
+  
+  .option-style {
+    font-size: 25px;
+    color: #FFFFF9;
+    background-color: #575344;
+    font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    
+  }
+  
+  .option-style:hover {
+    background-color: #f2b132;
+  }
+  
+  
