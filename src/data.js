@@ -11,6 +11,7 @@ export const filterByInput = (paises, inputValue) => {
       countryFilter.push(country);
     }
   }
+  //console.log(countryFilter);
   return countryFilter
 };
 

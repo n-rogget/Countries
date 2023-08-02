@@ -1,18 +1,24 @@
-import { filterByInput, anotherExample } from '../src/data.js';
+import { findByContinent } from '../src/data.js';
+import data from '../src/data/countries/countries.js';
 
 
-describe('filterByContinent', () => {
+describe('findByContinent', () => {
   it('is a function', () => {
-    expect(typeof filterByInput).toBe('function');
+    expect(typeof findByContinent).toBe('function');
   });
 
-  it('filters countries by continent', () => {
-    expect(filterByInput(paises, "Antarctica")[0].name.common).toBe('Antarctica');
+  it('devuelve el pais "Antarctica" cuando selecciona el continente "Antarctica"', () => {
+
+    expect(findByContinent(data.countries, "Antarctica")[0].name.common).toEqual('Antarctica');
   });
 });
 
 
-describe('anotherExample', () => {
+/*const countries = {
+
+}*/
+
+/*describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
   });
@@ -20,4 +26,4 @@ describe('anotherExample', () => {
   it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
   });
-});
+});*/
