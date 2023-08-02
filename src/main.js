@@ -1,6 +1,5 @@
+import { filterByInput, findByContinent } from './data.js';
 import data from './data/countries/countries.js';
-
-
 
 //VISUALIZAR LOS PAISES EN LA PANTALLA
 
@@ -42,50 +41,28 @@ createCards(data.countries);
 
 //Creamos una función para obtener el valor de objetos con más de 1 resultado (Languages)
 const validatorMoreObject = (countries) => {
-  if (!countries) {
-    return "No data"
-  }
-  const objectCountries = Object.values(countries)
-  const validatorObjectSpace = objectCountries.join(' / ')
-  return validatorObjectSpace
+  return !countries ? "No data" : Object.values(countries).join(' / ');
 }
 
 //Creamos una función para obtener el valor de objetos con 1 resultado (Gini)
 const validatorObjectSimple = (countries) => {
-  if (!countries) {
-    return "No data"
-  }
-  const simpleValue = Object.values(countries)
-  return simpleValue[0];
+  return !countries ? "No data" : Object.values(countries)[0];
 }
 
 //Creamos una función para obtener el valor de Array con 1 resultado (capital y continente)
 const validatorArraySimple = (countries) => {
-  if (!countries) {
-    return "No data"
-  }
-  const capitalValue = Object.values(countries)
-  return capitalValue;
+  return !countries ? "No data" : Object.values(countries);
 }
 
 //Funcion para array con más de 1 resultado (TLD, timezones, borders)
 const validatorMoreArray = (countries) => {
-  if (!countries) {
-    return 'No data'
-  }
-  const validatorMoreArraySpace = countries.join(' / ')
-  return validatorMoreArraySpace
+  return !countries ? 'No data' : countries.join(' / ');
 }
 
 //Funcion para strings (fifa y subregión)
 const ValidatorString = (countries) => {
-  if (!countries) {
-    return "No data"
-  }
-  return countries;
+  return !countries ? "No data" : countries;
 }
-
-
  
 //Hacemos nuestra función para mostrar la tarjeta con info completa de un país al hacerle click
 const showCards = (paises) => {
@@ -154,18 +131,9 @@ const inputFilter = async () => {
   containerCard.innerHTML = ''  
   // Obtenemos el valor del input y lo llevamos a minúsculas, lo guardamos en la constante inputValue
   const inputValue = inputSearch.value.toLowerCase();
-  //Inicializamos el filtro con un array vacío
-  const countryFilter = [];
-  //Recorremos los países
-  for (const country of data.countries) {
-    //Guardamos en una constante los nombre common de los países y los llevamos a minúsculas para compararlos con el valor del input correctamente
-    const countryName = country.name.common.toLowerCase();
-    //Usamos la condicional que evalúa si el nombre del país contiene la misma letra el valor del input, si es distinto a -1 quiere decir que lo encontró
-    if (countryName.indexOf(inputValue) !== -1) {
-      //Le agregamos con push el contenido encontrado al nuevo arreglo
-      countryFilter.push(country);
-    }
-  }
+  
+  const countryFilter = filterByInput(data.countries, inputValue)
+
   //LLamamos nuevamente a createCards para que nos muestre en la pantalla las tarjetas resultantes del filtro
   createCards(countryFilter);
   //Llamamos nuevamente a showCards después del filtro para que se pueda hacer click al país y salga el dialog
@@ -209,34 +177,27 @@ const optionContinentSelect = () => {
 optionContinentSelect();
 
 /*--------------------------------------------------------------------------------------------------*/
-
 //Al seleccionar un continente, debemos mostrar solo las tarjetas de los países que se ubican en ese continente
 const select = document.getElementById('continentSelect');
 const filterByContinent = () => {
  
   const selectedContinent = select.value;
-  
-  const filteredCountries = data.countries.filter(country => country.continents.includes(selectedContinent));
+
+  const filteredCountries = findByContinent(data.countries, selectedContinent)
   
   const containerCard = document.querySelector(".grid-container");
   containerCard.innerHTML = "";
-  
-  for (let i = 0; i < filteredCountries.length; i++) {
-    const card = document.createElement('section');
-    card.classList.add('box');
-    card.innerHTML = `
-    <img src="${filteredCountries[i].flags.png}"/> 
-    <h2>${filteredCountries[i].name.common}</h2>`;
-    containerCard.appendChild(card);
-
-  }
+    
   createCards(filteredCountries);
   showCards(filteredCountries);
-  return filteredCountries;
+  
 }
 
 
 select.addEventListener('change', filterByContinent);
+
+
+
 
 
 
@@ -260,7 +221,7 @@ select.addEventListener('change', filterByContinent);
 
 
 
- /*const inputFilter = () => {
+/*const inputFilter = () => {
    // Obtenemos el valor del input
    const inputValue = inputSearch.value.toLowerCase();
    
@@ -287,3 +248,19 @@ select.addEventListener('change', filterByContinent);
    }
    
    inputSearch.addEventListener('keyup', inputFilter);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

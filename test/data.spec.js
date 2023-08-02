@@ -1,24 +1,18 @@
-import { example, anotherExample } from '../src/data.js';
+import { filterByInput, anotherExample } from '../src/data.js';
 
 
-describe(' testeando funcion createCards', () => {
-//it , podemos plantear cada test
-//descripcion del test
-
+describe('filterByContinent', () => {
   it('is a function', () => {
-    //expect - la prueba
-    //matcher - toBe, toEqual
-    expect(typeof example).toBe('function');
+    expect(typeof filterByInput).toBe('function');
   });
 
-  it('returns `creates cards with its content`', () => {
-    expect(example()).toBe('example');
+  it('filters countries by continent', () => {
+    expect(filterByInput(paises, "Antarctica")[0].name.common).toBe('Antarctica');
   });
 });
 
-//COMO DEFINIR O TRAERNOS paises
 
-describe('showCards', () => {
+describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
   });
