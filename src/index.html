@@ -10,19 +10,31 @@
     <header>
       <h1>Countries</h1>
       <h3>Explore the World...</h3>
+      <br>
       <section class = "search-container">
         <input type="text" class="input-style" id = "countrySearch" placeholder="...Enter the name of a country"/>
         <img class = "search-icon" src="data-images/icono-lupa.png" alt="Buscar">
       </section>
       <br>
-      <section class = "functionButtons">
+      <section class = "select-container">
         <label for="continents"></label>
-        <section class = "select-icon-option">
+        
         <select name="continents" id="continentSelect">
           <option value="continent">Continents</option>
         </select>
-        </section>
       </section>
+
+      <section class= "sort-container">
+        <label for="sort-label"></label>
+        <select name= "sort" id= "sortSelect">
+          <option value="sort">Sort by area</option>
+          <option value="largeToSmall">Largest - Smallest</option>
+          <option value="smallToLarge">Smallest - Largest</option>
+        </select>
+      </section>
+
+
+      
       </header>
       
       
@@ -33,6 +45,11 @@
 
     </section>
 
+    <button class="toTop" id="toTop">
+      <svg viewBox="0 0 24 24">
+        <path d="m4 16 8-8 8 8"></path>
+      </svg>
+    </button>
     
     <div id="root"></div>
     <script src="main.js" type="module"></script>

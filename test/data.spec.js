@@ -1,4 +1,4 @@
-import { findByContinent } from '../src/data.js';
+import { findByContinent, areaOrder } from '../src/data.js';
 import data from '../src/data/countries/countries.js';
 
 
@@ -14,16 +14,12 @@ describe('findByContinent', () => {
 });
 
 
-/*const countries = {
-
-}*/
-
-/*describe('anotherExample', () => {
+describe('Ordenar por área', () => {
   it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+    expect(typeof areaOrder).toBe('function');
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+  it('devuelve el pais "Russia" cuando selecciona el sort by area Largest to smallest', () => {
+    expect(areaOrder(data.countries, "largeToSmall")[0].name.common).toEqual('Russia');
   });
-});*/
+});
