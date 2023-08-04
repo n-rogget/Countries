@@ -47,6 +47,7 @@ h1 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: #f2b132;
   text-shadow: 2px 2px 3px rgb(8, 8, 8);
+  cursor: pointer;
   
 }
 
@@ -70,7 +71,32 @@ h3 {
   
 }
 
+@media (max-width:1100px) {
+  .box {
+      border: 1px solid #575344;
+      box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      background-color: #FFFFF9;
+      width: 260px;
+      height: 190px;
+      padding: 20px 20px 15px 20px;
+      margin: auto;
+      text-align: center;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 15px;
+      color: #575344;
+      align-items: center;
+      justify-content: center;
+      display: grid;
+      margin-bottom: 30px;
+      cursor: pointer;
+      transition: box-shadow 500ms;
+      transition: opacity 500ms;
+      
+   }
+}
 
+@media (min-width:1100px) {
   .box {
       border: 1px solid #575344;
       box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.1);
@@ -93,7 +119,7 @@ h3 {
       transition: opacity 500ms;
       
    }
-  
+}
   
 .box:hover {
   box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.1);
@@ -110,6 +136,7 @@ img {
   border: 0.5px solid rgba(33, 31, 31, 0.694);
   border-radius: 5px;
   margin: auto;
+  
 }
 
 
@@ -171,7 +198,7 @@ img {
       background-color: #FFFFF9;
       width: 600px;
       height: 600px;
-      text-align: center;
+      text-align:center;
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-size: 18px;
       color: #575344;
@@ -186,25 +213,27 @@ img {
 }
 
 
-
-
 .closeButton {
   border: 1px solid #e5e2d9;
   margin-top: 20px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: white;
-  font-size: 17px;
+  font-size: 20px;
   text-align: center;
   background-color: #d63f31;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 5px 5px;
   display: inline-block;
   cursor: pointer;
   box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
-
-
+  height: 35px;
+ 
 } 
-
+.closeButton:hover {
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
+  background-color: #f50000;
+}
 
 
 .modal-open {
@@ -295,22 +324,36 @@ label[for="continents"] {
   font-size: 20px;
   cursor: pointer;
   appearance:none;
-
-
 }
 
-option {
-  font-size: 20px;
-  color: #FFFFF9;
-  background-color: #575344;
-  font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
-  text-align: center;
-  cursor: pointer;
-  align-self: center;
+#continentSelect:hover {
+  box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.1);
+   opacity: 0.8;
+ }
  
+ @media (min-width:1100px) {
+  option {
+    font-size: 20px;
+    color: #FFFFF9;
+    background-color: #575344;
+    font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+    cursor: pointer;
+   
+    }   
+  }
   
-      
-}
+  
+  @media (max-width:1100px) {
+    option {
+      font-size: 10px;
+      color: #FFFFF9;
+      background-color: #575344;
+      font-family: Cochin, Georgia, Times, 'Times New Roman', serif;
+  
+     
+      }   
+    }
 option:hover {
   background-color: #f2b132;
   cursor: pointer;
@@ -344,6 +387,10 @@ option:hover {
   appearance:none;
 
 }
+#sortSelect:hover {
+  box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.1);
+   opacity: 0.8;
+ }
 
 
 
@@ -386,7 +433,7 @@ label[for="sort-label"] {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   border-radius: 0.5rem;
   padding: 0.75rem;
-  color: #fff;
+  color: #F8E9CA;
 }
 #contenedor > section {
   width: 50%;
@@ -396,6 +443,7 @@ label[for="sort-label"] {
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
+  text-align: center;
 }
 
 body::-webkit-scrollbar {
@@ -425,3 +473,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;       
   border: 3px solid  #FFFFF9; 
 }
+
+
+

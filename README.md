@@ -1,3 +1,56 @@
+¡Exploremos los paises del mundo! 
+
+En este proyecto Data Lovers decidimos crear una aplicación del tema <Countries>
+
+Para iniciar en la planificación respondimos las siguientes preguntas:
+
+• ¿Quiénes son los principales usuarios de producto? 
+R: Estudiantes
+• ¿Cuáles son los objetivos de estos usuarios en relación con el producto?
+R: Obtener datos interesantes sobre los países del mundo.
+• ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
+R:  Su nombre común y oficial.
+    Su Top Level Domain (tld), la extensión que utilizan en internet, por ejemplo la de Perú es .pe y la de Brasil es .br.
+    Si se ha independizado o no.
+    Su(s) Capital(es).
+    La subregión a la que pertenece.
+    Los lenguajes hablados en ese país.
+    Los países con los que limita.
+    Su área total (en metros cuadrados).
+    Un emoji con su respectiva bandera.
+    La población total.
+    Su coeficiente de gini (del año más reciente del cual se tenga data).
+    La nomenclatura utilizada por la FIFA para identificar al país.
+    Su huso horario.
+    El continente al cual pertenece.
+    Y por último, imágenes y descripción de su bandera.
+• ¿Cuándo utilizan o utilizarían el producto?
+R: Cuando quieran investigar o conocer más sobre algún país.
+
+
+Seguido a estos planteamos las historias de usuario y los prototipos de baja y alta fidelidad, como se muestra a continuación:
+
+![Alt text](image-2.png)
+
+
+Nuestra propuesta es que el usuario (estudiante) pueda entrar a la página desde una pc, tablet o smartphone y pueda visualizar en un principio todos los países del mundo ordenados alfabéticamente, puede 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Data Lovers
 
 ## Índice

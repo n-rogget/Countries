@@ -3,23 +3,19 @@ import data from './data/countries/countries.js';
 
 //VISUALIZAR LOS PAISES EN LA PANTALLA
 
-//ordenamos los países por orden alfabético con un sort
+const containerCard = document.querySelector(".grid-container");
+//funcion que ordena de A a Z
 const sortByAZ = (paises) => {
   paises.sort((a, b) => a.name.common.localeCompare(b.name.common));
 }
-
-
 // Creamos la función createCards para crear las tarjetas y recibe el parámetro countries 
 const createCards = (paises) => {
-  //Seleccionamos el elemento section que tiene la clase "grid-container" y lo guardamos en la constante containerCard para que aparezca en la sección
-  const containerCard = document.querySelector(".grid-container")
   //Mandamos a crear un elemento dialog que nos servirá más adelante como ventana a mostrar la info de los paises
   const dialog = document.createElement('dialog')
   //Le asignamos el id popuDialog
   dialog.setAttribute('id', 'popupDialog')
   //Le indicamos que saldrá como hijo del section containerCard
   containerCard.appendChild(dialog)
-   
   //Recorremos los countries  
   for (let i = 0; i < paises.length; i++) {
     //creamos una sección para mostrar las tarjetas de los países
@@ -28,7 +24,7 @@ const createCards = (paises) => {
     card.classList.add('box')
     //mandamos a html la imagen y el nombre, con $para que busque lo que le pedimos
     card.innerHTML =
-      `<img src="${paises[i].flags.png}"/>    
+      `<img alt= 'bandera del país' src="${paises[i].flags.png}"/>    
         <h2>${paises[i].name.common}</h2>`
     // luego appendchile nos trae un "hijo" (tarjeta), sacado de un padre (section que contiene las tarjetas) 
     containerCard.appendChild(card)
@@ -38,6 +34,7 @@ const createCards = (paises) => {
 //Llamamos a la función y le pasamos el argumento data.countries que es donde se encuentra nuestra data
 sortByAZ(data.countries);
 createCards(data.countries);
+
 
 /* ----------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -76,6 +73,8 @@ const showCards = (paises) => {
   const popUp = document.querySelector('#popupDialog');
   // Seleccionamos los elementos de la clase .box que son las tarjetas de cada país y lo guardamos en la constante boxCountries
   const boxCountries = document.querySelectorAll('.box');
+
+
   //Recorrremos los elementos de las tarjetas
   for (let i = 0; i < boxCountries.length; i++) {
     //Escuchamos el evento click para los elementos de las tarjetas
@@ -83,11 +82,10 @@ const showCards = (paises) => {
 
       //Guardamos en una constante la data que vamos a mostrar
       const popContent = `
-      <img src="${paises[i].flags.png}"/>    
-      <h2>${paises[i].name.common}</h2>
+            <img alt= 'bandera del país' src="${paises[i].flags.png}"/>    
+            <h2>${paises[i].name.common}</h2>
             <section id= "contenedor">
             <section> 
-           
             <p>Official name: ${paises[i].name.official}</p>
             <p>TLD: ${validatorMoreArray(paises[i].tld)}</p>
             <p>Independent: ${paises[i].independent ? 'Yes' : 'No'}</p>
@@ -95,20 +93,22 @@ const showCards = (paises) => {
             <p>Subregion: ${ValidatorString(paises[i].subregion)}</p>
             <p>Languages: ${validatorMoreObject(paises[i].languages)}</p>
             <p>Borders: ${validatorMoreArray(paises[i].borders)}</p>           
-            <p>Area: ${paises[i].area}</p>
+            <p>Area: ${paises[i].area} kms²</p>
             </section>
             <section>
-            
             <p>Flag: ${paises[i].flag}</p>
-            <p>Population: ${paises[i].population}</p>
+            <p>Population: ${paises[i].population} people</p>
             <p>Gini: ${validatorObjectSimple(paises[i].gini)}</p>
             <p>Fifa: ${ValidatorString(paises[i].fifa)}</p>
             <p>Timezones: ${validatorMoreArray(paises[i].timezones)}</p>
             <p>Continents: ${validatorArraySimple(paises[i].continents)}</p>
-            <p>Population density (people per km²): ${(paises[i].population / paises[i].area).toFixed(2)}</p>
+            <p>Population density: ${(paises[i].population / paises[i].area).toFixed(2)} people per km²</p>
             </section>
             </section>
             `
+
+
+
       // La vamos a mostrar con innerHTML en el elemento dialog que corresponde al popUp        
       popUp.innerHTML = popContent;
       //Creamos un botón que nos servirá para cerrar
@@ -130,9 +130,10 @@ const showCards = (paises) => {
   }
 
 };
-sortByAZ(data.countries);
 //Llamamos a la función que nos permitirá mostrar el dialog al hacer click en una tarjeta y le pasamos el argumento data.countries
+sortByAZ(data.countries)
 showCards(data.countries);
+
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -142,8 +143,8 @@ showCards(data.countries);
 const inputSearch = document.getElementById("countrySearch");
 //Función para comparar el valor del input con el nombre de un país y se utiliza async para indicar que la función es asíncrona
 const inputFilter = async () => {
-  //Volvemos a seleccionar la section que contiene las tarjetas de los países
-  const containerCard = document.querySelector(".grid-container")
+ 
+
   //La limpiamos para mostrar después lo que resulte de la función
   containerCard.innerHTML = ''
   // Obtenemos el valor del input y lo llevamos a minúsculas, lo guardamos en la constante inputValue
@@ -151,12 +152,13 @@ const inputFilter = async () => {
 
   const countryFilter = filterByInput(data.countries, inputValue)
 
-
-  sortByAZ (countryFilter);
+  sortByAZ(countryFilter);
   //LLamamos nuevamente a createCards para que nos muestre en la pantalla las tarjetas resultantes del filtro
   createCards(countryFilter);
   //Llamamos nuevamente a showCards después del filtro para que se pueda hacer click al país y salga el dialog
   showCards(countryFilter);
+
+
 
 }
 //Escuchamos el evento keyup del inputSearch para que nos ejecute en tiempo real la función inputFilter 
@@ -196,6 +198,7 @@ const optionContinentSelect = () => {
 optionContinentSelect();
 
 /*--------------------------------------------------------------------------------------------------*/
+
 //Al seleccionar un continente, debemos mostrar solo las tarjetas de los países que se ubican en ese continente
 const select = document.getElementById('continentSelect');
 //Creamos la función que va a filtrar por continente
@@ -205,11 +208,11 @@ const filterByContinent = () => {
   //guardamos la funcion findeByContinent que esta en data.js con sus argumentos en la constante filteredCountries
   const filteredCountries = findByContinent(data.countries, selectedContinent)
   //Vamos a mostrar en containerCard los paises que resulten del filtrado, seleccionamos el contenedor de tarjetas
-  const containerCard = document.querySelector(".grid-container");
+ 
   //Lo limpiamos
   containerCard.innerHTML = "";
   //Llamamos a la función que muestra las tarjetas y la que permite abrir la ventana dialog con el nuevo argumento del resultado del filto  
-  
+
   createCards(filteredCountries);
   showCards(filteredCountries);
 
@@ -220,12 +223,9 @@ select.addEventListener('change', filterByContinent);
 
 const orderSelect = document.getElementById('sortSelect');
 const showCountrySorted = () => {
-  
+
   const selectedSort = orderSelect.value
   const countrySorted = areaOrder(data.countries, selectedSort)
-
-
-  const containerCard = document.querySelector(".grid-container");
 
   containerCard.innerHTML = "";
 
@@ -235,6 +235,7 @@ const showCountrySorted = () => {
 }
 
 orderSelect.addEventListener('change', showCountrySorted);
+
 
 const buttonUp = document.getElementById("toTop");
 window.onscroll = () => {
@@ -248,3 +249,33 @@ window.onscroll = () => {
     })
   }
 };
+
+const refreshClick = document.getElementById('refresh');
+refreshClick.addEventListener('click', () => {
+  location.reload();
+})
+
+
+
+
+const filterAndSortCountries = () => {
+  //valor del select de continente
+  const selectedContinent = select.value;
+  //valor del select de sort
+  const selectedSort = orderSelect.value;
+
+  // la funcion de filtrar continente
+  const filteredCountries = findByContinent(data.countries, selectedContinent);
+
+  // la funcion de ordenar los países por tamaño
+  const sortedCountries = areaOrder(filteredCountries, selectedSort);
+
+  containerCard.innerHTML = '';
+
+  //  tarjetas de los países ordenados y filtrados
+  createCards(sortedCountries);
+  showCards(sortedCountries);
+};
+
+select.addEventListener('change', filterAndSortCountries);
+orderSelect.addEventListener('change', filterAndSortCountries);
