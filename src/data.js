@@ -47,4 +47,4 @@ export const areaOrder = (paises, selectedSort) => {
 
 export const calculo = (a, b) => {
   return (a/b).toFixed(2)
-  }
+}
