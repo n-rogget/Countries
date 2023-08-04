@@ -22,11 +22,11 @@ export const filterByInput = (paises, inputValue) => {
 export const findByContinent = (paises, selectedContinent ) => {
   //if para establecer la condición de que si se selecciona la opción continent,  nos devuelva todos los paises como al inicio
   if (selectedContinent === 'continent'){
-    return paises
+    return paises.sort((a, b) => a.name.common.localeCompare(b.name.common));
   }
   //Guardamos en una constante el método filter que se aplica a paises (que va a ser toda la data) y va a filtrar country que es nuestro pais resultado para que sean los que incluyan el continente seleccionado
   const filteredCountries = paises.filter(country => country.continents.includes(selectedContinent));
-  return filteredCountries
+  return filteredCountries.sort((a, b) => a.name.common.localeCompare(b.name.common));
 };
 
 export const areaOrder = (paises, selectedSort) => {

@@ -3,7 +3,7 @@ import data from './data/countries/countries.js';
 
 //VISUALIZAR LOS PAISES EN LA PANTALLA
 
- //ordenamos los países por orden alfabético con un sort
+//ordenamos los países por orden alfabético con un sort
 const sortByAZ = (paises) => {
   paises.sort((a, b) => a.name.common.localeCompare(b.name.common));
 }
@@ -82,24 +82,33 @@ const showCards = (paises) => {
     boxCountries[i].addEventListener('click', () => {
 
       //Guardamos en una constante la data que vamos a mostrar
-      const popContent = `<img src="${paises[i].flags.png}"/>    
-            <h2>${paises[i].name.common}</h2>
+      const popContent = `
+      <img src="${paises[i].flags.png}"/>    
+      <h2>${paises[i].name.common}</h2>
+            <section id= "contenedor">
+            <section> 
+           
             <p>Official name: ${paises[i].name.official}</p>
             <p>TLD: ${validatorMoreArray(paises[i].tld)}</p>
             <p>Independent: ${paises[i].independent ? 'Yes' : 'No'}</p>
             <p>Capital: ${validatorArraySimple(paises[i].capital)}</p>
             <p>Subregion: ${ValidatorString(paises[i].subregion)}</p>
             <p>Languages: ${validatorMoreObject(paises[i].languages)}</p>
-            <p>Borders: ${validatorMoreArray(paises[i].borders)}</p>
+            <p>Borders: ${validatorMoreArray(paises[i].borders)}</p>           
             <p>Area: ${paises[i].area}</p>
+            </section>
+            <section>
+            
             <p>Flag: ${paises[i].flag}</p>
             <p>Population: ${paises[i].population}</p>
             <p>Gini: ${validatorObjectSimple(paises[i].gini)}</p>
             <p>Fifa: ${ValidatorString(paises[i].fifa)}</p>
             <p>Timezones: ${validatorMoreArray(paises[i].timezones)}</p>
             <p>Continents: ${validatorArraySimple(paises[i].continents)}</p>
-            <p>Population density (people per km²): ${(paises[i].population/paises[i].area).toFixed(2)}</p>;`;
-
+            <p>Population density (people per km²): ${(paises[i].population / paises[i].area).toFixed(2)}</p>
+            </section>
+            </section>
+            `
       // La vamos a mostrar con innerHTML en el elemento dialog que corresponde al popUp        
       popUp.innerHTML = popContent;
       //Creamos un botón que nos servirá para cerrar
