@@ -1,4 +1,4 @@
-import { findByContinent, areaOrder, filterByInput } from '../src/data.js';
+import { findByContinent, areaOrder, filterByInput, calculo } from '../src/data.js';
 import data from '../src/data/countries/countries.js';
 
 
@@ -46,3 +46,13 @@ describe('Buscar en input', () => {
     expect(filterByInput(data.countries, "ch")[0].name.common).toEqual('Chad');
   });
 })
+
+/* describe('calcular población por área', () => {
+  it('is a function', () => {
+    expect(typeof calculo).toBe('function');
+  });
+
+  it('devuelve el calculo de population/area al abrir el dialog', () => {
+    expect(calculo(data.countries.name.common, "Afghanistan")).toEqual('Chad');
+  });
+}) */
