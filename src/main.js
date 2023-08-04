@@ -1,4 +1,4 @@
-import { filterByInput, findByContinent, areaOrder } from './data.js';
+import { filterByInput, findByContinent, areaOrder, calculo} from './data.js';
 import data from './data/countries/countries.js';
 
 //VISUALIZAR LOS PAISES EN LA PANTALLA
@@ -67,6 +67,7 @@ const ValidatorString = (countries) => {
   return !countries ? "No data" : countries;
 }
 
+
 //Hacemos nuestra función para mostrar la tarjeta con info completa de un país al hacerle click
 const showCards = (paises) => {
   //Seleccionamos el elemento dialog con su ID popupDialog y lo guardamos en la constante popUp      
@@ -102,7 +103,7 @@ const showCards = (paises) => {
             <p>Fifa: ${ValidatorString(paises[i].fifa)}</p>
             <p>Timezones: ${validatorMoreArray(paises[i].timezones)}</p>
             <p>Continents: ${validatorArraySimple(paises[i].continents)}</p>
-            <p>Population density: ${(paises[i].population / paises[i].area).toFixed(2)} people per km²</p>
+            <p>Population density: ${calculo(paises[i].population, paises[i].area)} people per km²</p>
             </section>
             </section>
             `
@@ -220,23 +221,25 @@ const filterByContinent = () => {
 
 //Escuchamos el evento change para que ejecute la función de filtro por continente
 select.addEventListener('change', filterByContinent);
-
+// Seleccionamos el elemento sortSelect y lo guardamos en la constante orderSelect
 const orderSelect = document.getElementById('sortSelect');
+//Creamos una función para que muestre los países ordenados
 const showCountrySorted = () => {
-
+  //Seleccionamos el valor del orderSelect
   const selectedSort = orderSelect.value
+  //Llamamos a la funcion que ordena por area pasandole como argumento la data y el valor del orden seleccionado
   const countrySorted = areaOrder(data.countries, selectedSort)
-
+  //Limpiamos el containerCard
   containerCard.innerHTML = "";
-
+  //Llamamos el createCards y showCards nuevamente con el argumento que ordena los paises por area
   createCards(countrySorted);
   showCards(countrySorted);
 
 }
-
+//Escuchamos el evento change del select del sort y le mandamos a que ejecute la función que muestra los paises ordenados
 orderSelect.addEventListener('change', showCountrySorted);
 
-
+//Creamos un botón que regrese al usuario hacia arriba rápidamente
 const buttonUp = document.getElementById("toTop");
 window.onscroll = () => {
   buttonUp.classList[
@@ -249,7 +252,7 @@ window.onscroll = () => {
     })
   }
 };
-
+//Mandamos a que al hacer click en el header, mande a la pantalla de inicio
 const refreshClick = document.getElementById('refresh');
 refreshClick.addEventListener('click', () => {
   location.reload();
@@ -257,7 +260,7 @@ refreshClick.addEventListener('click', () => {
 
 
 
-
+//Creamos una función para que nos filtre y ordene a la vez
 const filterAndSortCountries = () => {
   //valor del select de continente
   const selectedContinent = select.value;
@@ -267,15 +270,34 @@ const filterAndSortCountries = () => {
   // la funcion de filtrar continente
   const filteredCountries = findByContinent(data.countries, selectedContinent);
 
-  // la funcion de ordenar los países por tamaño
+  // la funcion de ordenar los países por tamaño con el argumento de que tome la data de los paises que ya estan filtrados por continente
   const sortedCountries = areaOrder(filteredCountries, selectedSort);
 
   containerCard.innerHTML = '';
 
-  //  tarjetas de los países ordenados y filtrados
+  //  tarjetas de los países ordenados y filtrados con argumento que une las dos funciones
   createCards(sortedCountries);
   showCards(sortedCountries);
 };
 
+//Escuchamos evento change en cada caso 
 select.addEventListener('change', filterAndSortCountries);
 orderSelect.addEventListener('change', filterAndSortCountries);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
