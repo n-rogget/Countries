@@ -55,4 +55,4 @@ describe('calcular población por área', () => {
   it('devuelve el calculo de population/area al abrir el dialog', () => {
     expect(calculo(data.countries[0].population, data.countries[0].area)).toBe('61.66');
   });
-})
+});
