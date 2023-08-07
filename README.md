@@ -1,5 +1,9 @@
 ¡Exploremos los paises del mundo! 
 
+
+PLANIFICACIÓN:
+
+
 En este proyecto Data Lovers decidimos crear una aplicación del tema <Countries>
 
 Para iniciar en la planificación respondimos las siguientes preguntas:
@@ -50,9 +54,11 @@ R: Cuando quieran investigar o conocer más sobre algún país.
 
 
 
-Seguido a estos planteamos las historias de usuario y los prototipos de baja y alta fidelidad, como se muestra a continuación:
+Seguido a la investigación, planteamos las historias de usuario y los prototipos de baja fidelidad (realizado en Excalidraw), el cual fue planteado como idea inicial general de como se vería la página y fue modificado al empezar a realizar los prototipos de alta fidelidad (elaborados en Canva > https://www.canva.com/design/DAFpjyXCLnk/qZWEVp9DSP8LwkUtCYNtWQ/edit) y a medida que se iba construyendo el producto, como se muestra a continuación:
 
 ![Alt text](image-2.png)
+
+DESCRIPCIÓN DEL PRODUCTO:
 
 
 Nuestra propuesta permite que el usuario (estudiante) entre a la página desde una pc, tablet o smartphone,    visualice en un principio todos los países del mundo ordenados alfabéticamente, navegue hacia abajo y vuelva hacia arriba con una barra lateral, o bien utilizando un botón para regresar rápidamente al inicio de las tarjetas, así mismo haga click a cualquier pais de su interés y se le abra una ventana con la información completa del país seleccionado, incluyendo el cálculo de población por km².
@@ -63,8 +69,11 @@ Adicionalmente el header contiene dos botones. El primero llamado Continents par
 
 Al hacer click al título en el header, el usuario regresa a la página inicial. 
 
-Cuando el usuario recorre la página, el header se mantiene mostrando el buscado y los botones de interés.
-
+Cuando el usuario recorre la página, el header se mantiene mostrando el buscador y los botones de interés.
 
 El producto final ofrece una solución ideal para el estudiante que desee investigar o conocer más sobre los paises del mundo, permitiéndole obtener información relevante y ordenada de su interés.
+
+PRINCIPALES PROBLEMAS ENCONTRADOS EN LOS TESTS:
+
+Según lo solicitado, nos planteamos testear la función de filtrar por el buscador, filtrar según continentes, ordenar paises según área y función qu calcula la densidad de la población. El principal problema que tuvimos fue que por error empezamos a testear una función que no correspondía con lo que estabamos probando y no teníamos bien formulada la condición. Este problema fue resuelto con una ayudantía.
 

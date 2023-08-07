@@ -13,7 +13,8 @@ export const filterByInput = (paises, inputValue) => {
       countryFilter.push(country);
     }
   }
-  return countryFilter
+
+  return countryFilter;
 };
 /*-----------------------------------------------------------------------------------------------------------------------*/
 
@@ -47,4 +48,4 @@ export const areaOrder = (paises, selectedSort) => {
 
 export const calculo = (a, b) => {
   return (a/b).toFixed(2)
-  }
+}

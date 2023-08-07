@@ -47,12 +47,12 @@ describe('Buscar en input', () => {
   });
 })
 
-/* describe('calcular población por área', () => {
+describe('calcular población por área', () => {
   it('is a function', () => {
     expect(typeof calculo).toBe('function');
   });
 
   it('devuelve el calculo de population/area al abrir el dialog', () => {
-    expect(calculo(data.countries.name.common, "Afghanistan")).toEqual('Chad');
+    expect(calculo(data.countries[0].population, data.countries[0].area)).toBe('61.66');
   });
-}) */
+})

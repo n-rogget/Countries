@@ -142,6 +142,7 @@ showCards(data.countries);
 
 //Seleccionamos el elemento input text por su id countrySearch y lo guardamos en la constante inputSearch
 const inputSearch = document.getElementById("countrySearch");
+
 //Función para comparar el valor del input con el nombre de un país y se utiliza async para indicar que la función es asíncrona
 const inputFilter = async () => {
  
@@ -150,9 +151,17 @@ const inputFilter = async () => {
   containerCard.innerHTML = ''
   // Obtenemos el valor del input y lo llevamos a minúsculas, lo guardamos en la constante inputValue
   const inputValue = inputSearch.value.toLowerCase();
-
-  const countryFilter = filterByInput(data.countries, inputValue)
-
+  // Llamamos a la función filterBypInput que esta en data.js con sus argumentos, la data y el valor del input
+  const countryFilter = filterByInput(data.countries, inputValue);
+  //Creamos una condicional por si el arreglo lo devuelve vacío (no hay coincidencias)
+  if (countryFilter.length === 0) {
+    
+    // añadimos clase a la sección (box porque ya la definimos en css anteriormente)
+    containerCard.classList.add('message')
+    //mandamos a html la imagen y el nombre, con $para que busque lo que le pedimos
+    containerCard.innerHTML = '...No results found';
+    
+  }
   sortByAZ(countryFilter);
   //LLamamos nuevamente a createCards para que nos muestre en la pantalla las tarjetas resultantes del filtro
   createCards(countryFilter);
