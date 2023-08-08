@@ -59,7 +59,7 @@ const validatorArraySimple = (countries) => {
 
 //Funcion para array con más de 1 resultado (TLD, timezones, borders)
 const validatorMoreArray = (countries) => {
-  return !countries ? 'No data' : countries.join(' / ');
+  return !countries ? "No data" : countries.join(' / ');
 }
 
 //Funcion para strings (fifa y subregión)
@@ -117,7 +117,7 @@ const showCards = (paises) => {
       //Le agregamos una clase al buttton de cerrar
       button.classList.add("closeButton");
       //Mostramos lo que dice el botón de cerrar
-      button.innerHTML = "Cerrar";
+      button.textContent = "Cerrar";
       //Del dialog sale un hijo button
       popUp.appendChild(button);
       //Le escuchamos el click al button y cerramos
@@ -156,10 +156,10 @@ const inputFilter = async () => {
   //Creamos una condicional por si el arreglo lo devuelve vacío (no hay coincidencias)
   if (countryFilter.length === 0) {
     
-    // añadimos clase a la sección (box porque ya la definimos en css anteriormente)
+    // añadimos una nueva clase a containerCard para el texto del mensaje
     containerCard.classList.add('message')
-    //mandamos a html la imagen y el nombre, con $para que busque lo que le pedimos
-    containerCard.innerHTML = '...No results found';
+    //mandamos a mostrar le mensaje con textContent
+    containerCard.textContent = '...No results found';
     
   }
   sortByAZ(countryFilter);
@@ -276,12 +276,12 @@ const filterAndSortCountries = () => {
   //valor del select de sort
   const selectedSort = orderSelect.value;
 
-  // la funcion de filtrar continente
+  // la funcion de filtrar continente con sus argumentos
   const filteredCountries = findByContinent(data.countries, selectedContinent);
 
   // la funcion de ordenar los países por tamaño con el argumento de que tome la data de los paises que ya estan filtrados por continente
   const sortedCountries = areaOrder(filteredCountries, selectedSort);
-
+  //Vaciamos el containerCard
   containerCard.innerHTML = '';
 
   //  tarjetas de los países ordenados y filtrados con argumento que une las dos funciones
