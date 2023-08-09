@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    
+    <header>
+      <h1 id="refresh">Countries</h1>
+      <h3>Explore the World...</h3>
+      <br>
+      <section class = "search-container">
+        <input type="text" class="input-style" id = "countrySearch" placeholder="...Enter the name of a country"/>
+        <img class = "search-icon" src="data-images/icono-lupa.png" alt="Buscar">
+      </section>
+      <br>
+      <section class = "select-container">
+        <label for="continents"></label>
+        
+        <select name="continents" id="continentSelect">
+          <option value="continent">Continents</option>
+        </select>
+      </section>
+
+      <section class= "sort-container">
+        <label for="sort-label"></label>
+        <select name= "sort" id= "sortSelect">
+          <option value="sort">Sort by area</option>
+          <option value="largeToSmall">Largest - Smallest</option>
+          <option value="smallToLarge">Smallest - Largest</option>
+        </select>
+      </section>
+
+
+      
+      </header>
+
+    <br><br>
+
+    <section class="grid-container">   
+    </section>
+
+    <button class="toTop" id="toTop">
+      <svg viewBox="0 0 24 24">
+        <path d="m4 16 8-8 8 8"></path>
+      </svg>
+    </button>
+    
+    <div id="root"></div>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
