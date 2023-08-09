@@ -54,7 +54,7 @@ R: Cuando quieran investigar o conocer más sobre algún país.
 
 
 
-Seguido a la investigación, planteamos las historias de usuario y los prototipos de baja fidelidad (realizado en Excalidraw), el cual fue planteado como idea inicial general de como se vería la página y fue modificado al empezar a realizar los prototipos de alta fidelidad (elaborados en Canva > https://www.canva.com/design/DAFpjyXCLnk/qZWEVp9DSP8LwkUtCYNtWQ/edit) y a medida que se iba construyendo el producto, como se muestra a continuación:
+Seguido a la investigación, planteamos las historias de usuario y los prototipos de baja fidelidad (realizado en Excalidraw), el cual fue planteado como idea inicial general de como se vería la página y fue modificado al empezar a realizar los prototipos de alta fidelidad (elaborados en Canva) y a medida que se iba construyendo el producto, como se muestra a continuación:
 
 ![Alt text](image-2.png)
 
