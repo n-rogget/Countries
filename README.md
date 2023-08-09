@@ -4,7 +4,7 @@
 PLANIFICACIÓN:
 
 
-En este proyecto Data Lovers decidimos crear una aplicación del tema <Countries>
+En este proyecto Data Lovers decidimos crear una aplicación del tema Countries.
 
 Para iniciar en la planificación respondimos las siguientes preguntas:
 
