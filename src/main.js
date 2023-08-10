@@ -46,7 +46,7 @@ createCards(data.countries);
 const validatorMoreObject = (countries) => {
   return !countries ? "No data" : Object.values(countries).join(' / ');
 }
-
+//si country es nulo devuele no data, si no devuelve el valor
 //Creamos una función para obtener el valor de objetos con 1 resultado (Gini)
 const validatorObjectSimple = (countries) => {
   return !countries ? "No data" : Object.values(countries)[0];
@@ -143,8 +143,8 @@ showCards(data.countries);
 //Seleccionamos el elemento input text por su id countrySearch y lo guardamos en la constante inputSearch
 const inputSearch = document.getElementById("countrySearch");
 
-//Función para comparar el valor del input con el nombre de un país y se utiliza async para indicar que la función es asíncrona
-const inputFilter = async () => {
+//Función para comparar el valor del input con el nombre de un país
+const inputFilter =  () => {
  
 
   //La limpiamos para mostrar después lo que resulte de la función
